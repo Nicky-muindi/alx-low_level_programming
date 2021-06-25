@@ -1,7 +1,7 @@
 /*
  * File: 3-print_numbers.c
  * Auth: Nicholas M Mwanza
- * "_Enjoying prototypes in c programing 2021_"
+ * Programming in c 2021
  */
 #include "holberton.h"
 /**
@@ -11,12 +11,10 @@
  */
 void print_numbers(void)
 {
-	int x;
+	int num;
 
-	for (x = 0; x <= 9; x++)
-	{
-		_putchar(x + '0');
-	}
+	for (num = 0; num <= 9; num++)
+		_putchar((num % 10) + '0');
 
 	_putchar('\n');
 }
