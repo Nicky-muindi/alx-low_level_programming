@@ -1,3 +1,6 @@
+/*
+ * Auth:Nicholas M Mwanza
+ */
 #include "holberton.h"
 
 /**
