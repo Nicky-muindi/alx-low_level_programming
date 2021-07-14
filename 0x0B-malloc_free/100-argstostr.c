@@ -1,40 +1,55 @@
 #include "holberton.h"
 #include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
 /**
- * *argstostr - concatenates all arguements to the program
- * @ac: arguement count
- * @av: pointer to arguements
- * Return: pointer to new space in memory or null
- **/
+ * argstostr - concatenates all the arguments
+ * @ac: input params
+ * @av: input params
+ *
+ * Return: nothing.
+ */
+
 char *argstostr(int ac, char **av)
 {
-	char *strDup;
-	int i, j, k, size;
+	int x, j, v = 0;
+	int len = 1;
+	char *str;
 
 	if (ac == 0 || av == NULL)
-		return (NULL);
-	size = 0;
-
-	for (i = 0; i < ac; i++)
 	{
-		for (j = 0; av[i][j] != '\0'; j++)
-			size++;
-		size++;
+		return (NULL);
 	}
-	size++;
 
-	strDup = malloc(sizeof(char) * size);
-	if (strDup == NULL)
-		return (NULL);
-	k = 0;
-	for (i = 0; i < ac; i++)
+	for (x = 0; x < ac; x++)
 	{
-		for (j = 0; av[i][j] != '\0'; j++)
+		for (j = 0; av[x][j] != '\0'; j++)
 		{
-			strDup[k++] = av[i][j];
+			len += 1;
 		}
-		strDup[k++] = '\n';
+		len += 1;
 	}
-	strDup[k] = '\0';
-	return (strDup);
+	str = malloc(sizeof(char) * len);
+
+	for (x = 0; x < ac; x++)
+	{
+		for (j = 0; av[x][j] != '\0'; j++)
+		{
+			str[v] = av[x][j];
+			v++;
+		}
+		str[v] = '\n';
+		v++;
+	}
+	str[v] = '\0';
+
+	if (str != NULL)
+	{
+		return (str);
+	}
+	else
+	{
+		return (NULL);
+	}
 }
