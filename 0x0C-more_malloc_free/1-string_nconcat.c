@@ -1,52 +1,31 @@
-#include "holberton.h"
 #include <stdlib.h>
 
 /**
- * string_nconcat - ...
- * @s1: ...
- * @s2: ...
- * @n: ...
+ * _calloc - allocates memory for an array, using malloc, and initializes to 0
  *
- * Return: ...
+ * @nmemb: number of elements of the array
+ *
+ * @size: size of each element of the array
+ *
+ * Return: pointer to the allocated memory (SUCCESS) or
+ * NULL if @nmemb or @size is 0 (FAILURE) or
+ * NULL if insufficient memory was available (FAILURE)
  */
-char *string_nconcat(char *s1, char *s2, unsigned int n)
+
+void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	unsigned int i = 0, j = 0, k = 0, l = 0;
-	char *str;
+	unsigned int i;
+	void *ptr;
 
-	if (s1 == NULL)
-		s1 = "";
-	if (s2 == NULL)
-		s2 = "";
+	if (nmemb == 0 || size == 0)
+		return ('\0');
 
-	while (s1[i])
-		i++;
+	ptr = malloc(nmemb * size);
 
-	while (s2[k])
-		k++;
+	if (ptr == NULL)
+		return ('\0');
+	for (i = 0; i < nmemb; i++)
+		*((int *)ptr + i) = 0;
 
-	if (n >= k)
-		l = i + k;
-	else
-		l = i + n;
-
-	str = malloc(sizeof(char) * l + 1);
-	if (str == NULL)
-		return (NULL);
-
-	k = 0;
-	while (j < l)
-	{
-		if (j <= i)
-			str[j] = s1[j];
-
-		if (j >= i)
-		{
-			str[j] = s2[k];
-			k++;
-		}
-		j++;
-	}
-	str[j] = '\0';
-	return (str);
+	return ptr;
 }
