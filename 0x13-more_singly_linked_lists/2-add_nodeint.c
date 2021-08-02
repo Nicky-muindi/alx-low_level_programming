@@ -1,3 +1,4 @@
+/* function that adds a new node at the beginninh of a listint_t list */
 #include "lists.h"
 
 /**
