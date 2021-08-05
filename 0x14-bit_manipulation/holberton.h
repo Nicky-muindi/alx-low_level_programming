@@ -1,11 +1,8 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
+#ifndef BITMANIPULATION
+#define BITMANIPULATION
 
-/*
- * File: holberton.h
- * Desc: Header file containing prototypes for all functions
- *       written in the 0x14-bit_manipulation directory.
- */
+#include <unistd.h>
+#include <stdio.h>
 
 int _putchar(char c);
 unsigned int binary_to_uint(const char *b);
@@ -16,4 +13,4 @@ int clear_bit(unsigned long int *n, unsigned int index);
 unsigned int flip_bits(unsigned long int n, unsigned long int m);
 int get_endianness(void);
 
-#endif /* HOLBERTON_H */
+#endif
