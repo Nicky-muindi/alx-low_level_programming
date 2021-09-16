@@ -1,6 +1,6 @@
 /*
  * File: 0-print_dlistint.c
- * Nicholas M Mwanza
+ * Auth: Nicholas M Mwanza
  */
 
 #include "lists.h"
